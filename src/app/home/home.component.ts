@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CovidServiceService, CovidData } from '../covid-service.service'
 
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.route.snapshot.params.Language)
     this.Language = this.route.snapshot.params.Language != undefined ? this.route.snapshot.params.Language : "th"
+    console.log("1", this.Language)
     this.CoidServ.getCovidData().subscribe(
       (res) => {
         this.CovidData = res
@@ -25,5 +26,8 @@ export class HomeComponent implements OnInit {
     )
 
   }
-
+  ChangeLang(event) {
+    this.Language = event
+    
+  }
 }
