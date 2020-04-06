@@ -1,0 +1,56 @@
+.animate{
+    animation-name:move;
+    animation-duration: 2s;
+}
+@keyframes move {
+    0% {
+        width:85%;
+        height:85%;
+        /* left: -900px; */
+    }
+    100% {
+        width:100%;
+        height:100%;
+        /* left: 0px; */
+
+    }
+}
+.CovidTitle{
+    font-size : 25px;
+}
+.fontCardtitle{
+    font-size : 25px;
+}
+.fontCardCount{
+    font-size : 35px;
+}
+@media(min-width : 768px){
+    .CovidTitle{
+        font-size : 22px;
+    }
+    .fontCardtitle{
+        font-size : 25px;
+    }
+    .fontCardCount{
+        font-size : 45px;
+    }
+}
+@media(min-width : 992px){
+    .CovidTitle{
+        font-size : 30px;
+    }
+    .fontCardtitle{
+        font-size : 25px;
+    }
+    .fontCardCount{
+        font-size : 45px;
+    }
+}
+@media(min-width : 1200px){
+    .fontCardtitle{
+        font-size : 25px;
+    }
+    .fontCardCount{
+        font-size : 45px;
+    }
+}
