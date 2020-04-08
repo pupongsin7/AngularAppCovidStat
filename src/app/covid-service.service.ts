@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 export interface CovidData {
-  Confirmed : string
+  Confirmed :string;
   Recovered: string;
   Hospitalized: string;
   Deaths: string;
@@ -23,6 +23,6 @@ export class CovidServiceService {
     
     ) { }
   getCovidData() {
-    return this.http.get<CovidData>('http://covid19.th-stat.com/api/open/today')
+    return this.http.get<CovidData>('https://covid19.th-stat.com/api/open/today')
   }
 }

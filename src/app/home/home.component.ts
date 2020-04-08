@@ -13,11 +13,16 @@ export class HomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private CoidServ: CovidServiceService
-  ) { }
+  ) {
+    this.route.paramMap.subscribe(params => {
+      this.Language = params.get('Language')
+      console.log("1",this.Language)
+    })
+
+   }
   ngOnInit(): void {
-    console.log(this.route.snapshot.params.Language)
+
     this.Language = this.route.snapshot.params.Language != undefined ? this.route.snapshot.params.Language : "th"
-    console.log("1", this.Language)
     this.CoidServ.getCovidData().subscribe(
       (res) => {
         this.CovidData = res

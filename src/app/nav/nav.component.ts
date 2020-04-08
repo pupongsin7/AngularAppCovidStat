@@ -18,4 +18,7 @@ export class NavComponent implements OnInit {
   Navigate(Lang):void{
     this._router.navigateByUrl("/home/"+Lang,{skipLocationChange:true})
   }
+  fucLanguage(){
+
+  }
 }
