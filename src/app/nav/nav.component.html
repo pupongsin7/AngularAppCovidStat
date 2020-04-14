@@ -1,6 +1,5 @@
 <nav class="Navigatorbar">
-    <span class="pl-2" href="" *ngIf="Language == 'en'"><b>Situation Report COVID-19</b></span>
-    <span class="pl-2" href="" *ngIf="Language == 'th'"><b>รายงานสถานการณ์ COVID-19</b></span>
+    <span class="pl-2" href="" ><b>{{'Header' | translate}}</b></span>
     <!-- <li class="nav-item align-self-center"><a [routerLink]='["home","th"]'>TH</a>&nbsp;|&nbsp;<a [routerLink]='["home","en"]' >EN</a>
     </li> -->
     <li class="nav-item align-self-center"><button (click)="switchLanguage.emit('th')">TH</button>&nbsp;|&nbsp;<button (click)="switchLanguage.emit('en')">EN</button>

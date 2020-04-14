@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 export interface CovidData {
-  Confirmed :string;
-  Recovered: string;
-  Hospitalized: string;
-  Deaths: string;
-  NewConfirmed: string;
-  NewRecovered: string;
-  NewHospitalized: string;
-  NewDeaths: string;
+  Confirmed :number;
+  Recovered: number;
+  Hospitalized: number;
+  Deaths: number;
+  NewConfirmed: number;
+  NewRecovered: number;
+  NewHospitalized: number;
+  NewDeaths: number;
   UpdateDate: string;
 }
 @Injectable({

@@ -1,17 +1,14 @@
-<app-nav [Language]="Language" (switchLanguage)="ChangeLang($event)"></app-nav>
+<app-nav (switchLanguage)="ChangeLang($event)"></app-nav>
 <div class="container pt-5">
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12 col-xl-5">
             <div class="d-flex flex-column justify-content-center">
-                <div *ngIf="Language=='th'" class="d-flex justify-content-start CovidTitle">
-                    รายงานสถานการณ์ โควิด-19
+                <div class="d-flex justify-content-start CovidTitle">
+                    {{ 'Header' | translate}}
                 </div>
-                <div *ngIf="Language=='en'" class="d-flex justify-content-start CovidTitle">
-                    Situation Report COVID-19
-                </div>
+                
                 <div class="d-flex w-100">
-                    <span *ngIf="Language=='th'">อัพเดทข้อมูลล่าสุด : {{CovidData.UpdateDate}}</span>
-                    <span *ngIf="Language=='en'">Lasted Update : {{CovidData.UpdateDate}}</span>
+                    <span >{{ 'LastedUpdate' | translate }} : {{CovidData.UpdateDate}}</span>
                 </div>
             </div>
         </div>
@@ -22,13 +19,13 @@
                         <div class="card animate w-100 h-100" style="background-color: #e752d3;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center align-items-center h-50 fontCardtitle">
-                                    ติดเชื้อสะสม
+                                    {{ 'Confirmed' | translate}}
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center fontCardCount">
                                     {{CovidData.Confirmed | number}}
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center">
-                                    (เพิ่มขึ้น {{CovidData.NewConfirmed | number}})
+                                    ({{'Increase' | translate}} {{CovidData.NewConfirmed | number}})
                                 </div>
                             </div>
                         </div>
@@ -39,13 +36,13 @@
                         <div class="card animate w-100 h-100" style="background-color: #34ed7b;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center align-items-center h-50 fontCardtitle">
-                                    หายแล้ว
+                                    {{'Recovered' | translate}}
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center fontCardCount">
                                     {{CovidData.Recovered | number}}
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center">
-                                    (เพิ่มขึ้น {{CovidData.NewRecovered | number}})
+                                    ({{'Increase' | translate}} {{CovidData.NewRecovered | number}})
                                 </div>
                             </div>
                         </div>
@@ -56,13 +53,14 @@
                         <div class="card animate w-100 h-100" style="background-color: #ecea71;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center align-items-center h-50 fontCardtitle">
-                                    รักษาอยู่
+                                    {{'Hospitalized' | translate}}
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center fontCardCount">
                                     {{CovidData.Hospitalized | number}}
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center">
-                                    (เพิ่มขึ้น {{CovidData.NewHospitalized | number}})
+                                    <span *ngIf="CovidData.NewHospitalized >= 0">({{'Increase' | translate}} {{CovidData.NewHospitalized | number}})</span>
+                                    <span *ngIf="CovidData.NewHospitalized < 0" > ({{'Decrease' | translate}} {{CovidData.NewHospitalized*-1 | number}} )  </span>
                                 </div>
                             </div>
                         </div>
@@ -73,13 +71,13 @@
                         <div class="card animate w-100 h-100" style="background-color: #f05050;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center align-items-center h-50 fontCardtitle">
-                                    เสียชีวิต
+                                    {{'Deaths' | translate}}
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center fontCardCount">
                                     {{CovidData.Deaths | number}}
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center">
-                                    (เพิ่มขึ้น {{CovidData.NewDeaths | number}})
+                                    ({{'Increase' | translate}} {{CovidData.NewDeaths | number}})
                                 </div>
                             </div>
                         </div>

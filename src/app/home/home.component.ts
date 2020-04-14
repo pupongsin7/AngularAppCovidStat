@@ -1,28 +1,25 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CovidServiceService, CovidData } from '../covid-service.service'
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  Language: String
   CovidData: CovidData
+  translate: TranslateService;
   constructor(
     private route: ActivatedRoute,
-    private CoidServ: CovidServiceService
+    private CoidServ: CovidServiceService,
+    translate: TranslateService
   ) {
-    this.route.paramMap.subscribe(params => {
-      this.Language = params.get('Language')
-      console.log("1",this.Language)
-    })
-
+    this.translate = translate;
+    this.translate.setDefaultLang('th');
    }
   ngOnInit(): void {
 
-    this.Language = this.route.snapshot.params.Language != undefined ? this.route.snapshot.params.Language : "th"
     this.CoidServ.getCovidData().subscribe(
       (res) => {
         this.CovidData = res
@@ -32,7 +29,6 @@ export class HomeComponent implements OnInit {
 
   }
   ChangeLang(event) {
-    this.Language = event
-    
+    this.translate.use(event);
   }
 }

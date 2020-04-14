@@ -1,0 +1,11 @@
+{
+    "Header": "Situation Report COVID-19",
+    "LastedUpdate": "Lasted Update",
+    "Confirmed" : "Cases",
+    "Recovered" : "Remedied",
+    "Hospitalized" : "Hospitalized",
+    "Deaths" : "Deceased",
+    "Increase" : "Increase",
+    "Decrease" : "Decrease"
+
+}
